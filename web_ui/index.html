@@ -1,0 +1,104 @@
+﻿<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Atlas</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="noise"></div>
+  <div id="browserOverlay" class="browser-overlay" aria-hidden="true"></div>
+  <main class="layout">
+    <header class="topbar glass">
+      <div class="brand">
+        <div class="brand-row">
+          <img src="atlas-logo.png" alt="Atlas logo" class="brand-logo" />
+          <div class="brand-text">
+            <h1>ATLAS</h1>
+            <p>Conversational Computer Assistant</p>
+          </div>
+        </div>
+      </div>
+      <div class="connection" id="connectionState">Connecting</div>
+    </header>
+
+    <section class="content">
+      <section class="chat glass">
+        <div class="transcript-shell">
+          <div id="timeline" class="timeline"></div>
+        </div>
+
+        <div id="liveLine" class="live-line">Mic is off</div>
+
+        <form id="textForm" class="composer">
+          <input id="textInput" type="text" placeholder="Ask naturally, or request a computer task..." autocomplete="off" />
+        </form>
+      </section>
+
+      <aside class="side">
+        <article id="taskPanel" class="panel glass">
+          <h2>Computer Agent</h2>
+          <div class="task-head">
+            <span id="taskPulse" class="pulse idle"></span>
+            <div>
+              <div id="taskTitle" class="task-title">Idle</div>
+              <div id="taskSubtitle" class="task-subtitle">No active tasks</div>
+            </div>
+          </div>
+
+          <div class="status-block">
+            <span class="status-label">Thinking</span>
+            <p id="thinkingText">Waiting for instructions.</p>
+          </div>
+
+          <div class="status-block">
+            <span class="status-label">Latest Action</span>
+            <p id="actionText">-</p>
+          </div>
+
+          <div class="status-block">
+            <span class="status-label">Thinking Progress</span>
+            <ol id="thinkingSteps" class="thinking-steps"></ol>
+          </div>
+        </article>
+
+        <article class="panel glass">
+          <h2>Web Search</h2>
+          <p id="searchQuery" class="search-query">No active search</p>
+          <ul id="searchSources" class="sources"></ul>
+        </article>
+
+        <article class="panel glass">
+          <h2>Memory</h2>
+          <ul id="memoryList" class="memory-list"></ul>
+        </article>
+
+        <article id="confirmCard" class="panel glass hidden">
+          <h2>Confirm Action</h2>
+          <p id="confirmSummary" class="confirm-summary">Approve this step?</p>
+          <p class="confirm-note">Use MUSE: nod to approve, shake to reject.</p>
+        </article>
+
+      </aside>
+    </section>
+  </main>
+  <div class="footer-dock" aria-label="Bottom controls">
+    <div class="mic-controls" aria-label="Microphone controls">
+      <button id="micOnBtn" type="button" class="btn mic-btn">Mic On</button>
+      <button id="micOffBtn" type="button" class="btn mic-btn">Mic Off</button>
+    </div>
+    <div class="dock-actions">
+      <button id="museCalBtn" type="button" class="btn muse-calibrate">Recalibrate Muse</button>
+      <button id="emergencyBtn" type="button" class="btn kill-switch">Emergency Stop</button>
+    </div>
+  </div>
+
+  <script src="https://unpkg.com/livekit-client/dist/livekit-client.umd.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
+

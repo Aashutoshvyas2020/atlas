@@ -1,0 +1,19 @@
+﻿# Secrets
+.env
+
+# Python
+__pycache__/
+*.py[cod]
+
+# Runtime/data
+.agent_chrome_profile/
+.agent_runs/
+.run_logs/
+*.log
+
+# Local/large assets
+*.MOV
+
+# OS/editor
+.DS_Store
+Thumbs.db
